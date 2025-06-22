@@ -1,9 +1,33 @@
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 100px auto 0 auto;
   padding: 20px;
-  background-color:   #F5F5DC;
+  /*background-color: #F5F5DC;*/
+
+  display: flex;
+  align-items: center; /* vertically center the text and image */
+  gap: 40px; /* space between text and image */
 }
 
+article {
+  flex: 1; /* take up remaining space */
+}
+
+figure {
+  flex-shrink: 0; /* prevent image from shrinking */
+  width: 600px; /* fixed width for the image container */
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+p {
+  font-family: 'Quiche Sans', sans-serif;
+  margin-bottom: 1.2em;
+  font-size: 1.3em;
+  color: aliceblue;
+}
