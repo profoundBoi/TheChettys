@@ -16,15 +16,14 @@ body {
     color: #333;
 }
 
-/* Navbar Styling */
 nav {
     background-color:  #84634A;
     height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
+    justify-content:baseline;
+    padding: 0 20px;
     position: relative;
 }
 
