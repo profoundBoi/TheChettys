@@ -22,7 +22,7 @@ nav {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content:baseline;
+    justify-content: space-between;
     padding: 0 20px;
     position: relative;
 }
@@ -75,7 +75,7 @@ nav ul li a.active {
 }
 
 /* Responsive for Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1167px) {
     .bat-button {
         display: block; /* Show hamburger on small screens */
     }
