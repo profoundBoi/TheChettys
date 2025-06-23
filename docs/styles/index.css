@@ -3,20 +3,22 @@
   max-width: 1200px;
   margin: 100px auto 0 auto;
   padding: 20px;
-  /*background-color: #F5F5DC;*/
 
   display: flex;
-  align-items: center; /* vertically center the text and image */
-  gap: 40px; /* space between text and image */
+  flex-direction: column; /* Stack image above text */
+  align-items: center;    /* Center content horizontally */
+  text-align: center;     /* Center the text */
+  gap: 20px;              /* Space between image and text */
+  
+  
 }
 
 article {
-  flex: 1; /* take up remaining space */
+  flex: none; /* No need to flex-grow when stacking */
 }
 
 figure {
-  flex-shrink: 0; /* prevent image from shrinking */
-  width: 600px; /* fixed width for the image container */
+  width: 600px; /* Image container width */
 }
 
 .responsive-img {

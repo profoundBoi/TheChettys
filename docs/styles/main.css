@@ -1,52 +1,80 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Custom Font */
 @font-face {
-   font-family: 'TBJ Palatino';
-   src: url('../fonts/TBJ-Palatino-Mini-Edition-BF666949e24fdc5.ttf') format('truetype');
+    font-family: 'TBJ Palatino';
+    src: url('../fonts/TBJ-Palatino-Mini-Edition-BF666949e24fdc5.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family:'TBJ Palatino', serif; /*or "Josefin Sans", sans-serif*/
-  background-color: #84634A;
+    font-family: 'TBJ Palatino', serif;
+    background-color: #84634A;
     color: #333;
-  
 }
 
-main{
-      background-image: url('../Images/Borders/border3.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
 
+/* Navbar */
 nav {
-    background-color:  #84634A;
+    background-color: #84634A;
     height: 70px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    width: 90%;
+    padding: 10px 1px;
     position: relative;
+    margin-top: 10px;
+    display: flex;
 }
 
-nav label[for="logo"] {
+/* Left and Right Nav */
+.nav-left ul {
+     list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    left: 50px;
+    margin-top: 100px;
+}
+.nav-right ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0px;
+    margin-top: 100px;
+}
+
+.nav-left ul li,
+.nav-right ul li {
+    margin: 50px 15px;
+}
+
+nav ul li a {
+    color: #3D1F12;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #F5F5DC;
+    /*color: #3D1F12;*/
+}
+
+/* Center Logo */
+nav .logo {
     color: #fff;
-    font-size: 28px;
-    font-family: 'TBJ Palatino', serif; /* Use the custom font */
+    font-size: 50px;
+    font-family: 'TBJ Palatino', serif;
     font-weight: bold;
     cursor: pointer;
     letter-spacing: 1px;
-}
-
-/* Hide the checkbox */
-#check {
-    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 130px;
 }
 
 /* Hamburger Button */
@@ -54,62 +82,59 @@ nav label[for="logo"] {
     font-size: 30px;
     color: white;
     cursor: pointer;
-    display: none; /* Hidden on large screens */
+    display: none;
+    position: absolute;
+    left: 20px;
+}
+#check {
+    display: none; /* Already removes it from layout */
 }
 
-/* Navbar List */
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    background-color:  #F5F5DC; /* Soft gold background on hover */
-    color: #3D1F12; /* Text color switches to the navbar color */
-}
-
-/* Responsive for Mobile */
-@media (max-width: 1167px) {
-    .bat-button {
-        display: block; /* Show hamburger on small screens */
-    }
-
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: -100%;
-        background-color:  #84634A;
-        width: 100%;
+/* Media Query for Mobile Screens */
+@media (max-width: 1275px) {
+    nav {
         flex-direction: column;
-        align-items: center;
-        transition: all 0.3s ease;
-        border-bottom: 3px solid  #F5F5DC;
+        height: auto;
+        padding: 20px;
     }
 
-    #check:checked ~ ul {
-        left: 0;
+    /* Show hamburger menu */
+    .bat-button {
+        display: block;
+        top: 20px;
     }
 
-    nav ul li {
-        margin: 15px 0;
+    /* Hide nav links by default with animation */
+    .nav-left ul,
+    .nav-right ul {
+        flex-direction: column;
+        position: static;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease-in-out;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: -40px;
     }
 
-    nav ul li a {
-        font-size: 20px;
-        padding: 12px 20px;
+    /* When checkbox is checked, show the nav links with animation */
+    #check:checked ~ .nav-left ul,
+    #check:checked ~ .nav-right ul {
+        display: flex;
+        max-height: 500px; /* Set large enough to fit your menu items */
+    }
+
+    /* Center logo on top */
+    nav .logo {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .nav-left ul li,
+    .nav-right ul li {
+        margin: 10px 0;
+        text-align: center;
     }
 }
