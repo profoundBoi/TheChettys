@@ -1,35 +1,113 @@
+
+
+/* Custom Font */
+@font-face {
+    font-family: 'Quiche Sans Thin';
+    src: url('../fonts/QuicheSans-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* Header Styling */
+header {
+    text-align: left;
+    padding: 50px 20px 20px 20px;
+    color: #3D1F12;
+    margin-left: 150px; /* Push header closer to the left edge */
+    margin-top: 150px; /* Adjusted to match the nav height */
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #3D1F12;
+  font-family: 'Quiche Sans', sans-serif;
+ 
+}
+
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 100px auto 0 auto;
-  padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
 
-  display: flex;
-  flex-direction: column; /* Stack image above text */
-  align-items: center;    /* Center content horizontally */
-  text-align: center;     /* Center the text */
-  gap: 20px;              /* Space between image and text */
-  
-  
+    display: flex;
+    align-items: flex-start; /* Push items to top */
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Move content to the left */
 }
 
+/* Article Styling - Align Left */
 article {
-  flex: none; /* No need to flex-grow when stacking */
+    flex: 1;
+    min-width: 300px;
+    text-align: left; /* Force text to align left */
+    margin-left: 20px; /* Push text block closer to the left */
 }
 
+article p {
+    font-family: 'Quiche Sans', sans-serif;
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #3D1F12;
+    text-align: center; /* Center text within the article */
+}
+
+li {
+   
+    list-style: none; /* Remove default list styling */
+}
+ li :hover {
+   color:  #846c6c; /* Change color on hover */
+}
+
+/* Image Styling */
 figure {
-  width: 600px; /* Image container width */
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
 }
 
 .responsive-img {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-p {
-  font-family: 'Quiche Sans', sans-serif;
-  margin-bottom: 1.2em;
-  font-size: 1.3em;
-  color: aliceblue;
+.responsive-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #3D1F12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 26px;
+
+    }
+
+    article p {
+        font-size: 18px;
+    
+    }
 }
