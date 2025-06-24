@@ -80,9 +80,9 @@ nav .logo {
 /* Hamburger Button */
 .bat-button {
     font-size: 30px;
-    color: white;
+    color: #3D1F12;
     cursor: pointer;
-    display: none;
+    display: none; /* Hide by default */
     position: absolute;
     left: 20px;
 }
