@@ -16,13 +16,13 @@ header {
     padding: 50px 20px 20px 20px;
     color: #3D1F12;
   /* Push header closer to the left edge */
-    margin-top: 150px; /* Adjusted to match the nav height */
+    margin-top: -50px; /* Adjusted to match the nav height */
 }
 
 header h1 {
   font-size: 48px;
   margin-bottom: 20px;
-  color: #3D1F12;
+  color:#84634A;
   font-family: 'Quiche Sans', sans-serif;
   text-align: center;
  
@@ -31,7 +31,7 @@ header h1 {
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: -50px auto;
     padding: 40px;
 
     display: flex;
@@ -44,7 +44,7 @@ header h1 {
 /* Article Styling - Align Left */
 article {
     flex: 1;
-    margin-top: 100px;
+    margin-top: 10px;
     min-width: 300px;
     text-align: left; /* Force text to align left */
     margin-left: 20px; /* Push text block closer to the left */
@@ -54,8 +54,8 @@ article {
 article p {
     font-family: 'Quiche Sans', sans-serif;
     margin-bottom: 20px;
-    font-size: 20px;
-    color: #3D1F12;
+    font-size: 25px;
+    color: #84634A;
     text-align: center; /* Center text within the article */
 }
 
@@ -96,6 +96,16 @@ footer {
     margin-top: 40px;
     font-size: 16px;
     color: #3D1F12;
+}
+
+
+.Pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 100px;
 }
 
 /* Responsive Design */

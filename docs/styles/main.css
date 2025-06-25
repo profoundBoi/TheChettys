@@ -8,20 +8,21 @@
 
 body {
     font-family: 'TBJ Palatino', serif;
-    background-color: #84634A;
+    background-color: #3D1F12;
     color: #333;
 }
 
 
 /* Navbar */
 nav {
-    background-color: #84634A;
+    background-color: #3D1F12;
     height: 70px;
     width: 90%;
     padding: 10px 1px;
     position: relative;
     margin-top: 10px;
     display: flex;
+    left: 3.5%;
 }
 
 /* Left and Right Nav */
@@ -48,7 +49,7 @@ nav {
 }
 
 nav ul li a {
-    color: #3D1F12;
+    color:  #84634A;
     text-decoration: none;
     font-size: 18px;
     padding: 8px 12px;
@@ -65,7 +66,7 @@ nav ul li a.active {
 
 /* Center Logo */
 nav .logo {
-    color: #fff;
+    color:  #84634A;
     font-size: 50px;
     font-family: 'TBJ Palatino', serif;
     font-weight: bold;
@@ -76,11 +77,28 @@ nav .logo {
     transform: translateX(-50%);
     margin-top: 130px;
 }
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 80px; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%; /* Optional: circular */
+    margin-bottom: 10px; /* Space between image and text */
+    position: relative;
+    top: -90px; /* Move image higher */
+    color: #84634A;
+}
 
 /* Hamburger Button */
 .bat-button {
     font-size: 30px;
-    color: #3D1F12;
+    color:#84634A;
     cursor: pointer;
     display: none; /* Hide by default */
     position: absolute;
@@ -130,6 +148,19 @@ nav .logo {
         transform: none;
         margin-top: 10px;
         text-align: center;
+    }
+        .logo {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    /* Ensure the image is centered */
+    .logo-img {
+        display: block;
+        margin: 0 auto;
+        top: -10px;
     }
 
     .nav-left ul li,
