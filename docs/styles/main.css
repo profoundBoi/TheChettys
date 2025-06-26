@@ -42,8 +42,8 @@ nav {
 }
 
 .logo-img {
-  width: 80px;
-  height: auto;
+  width: 140px;
+  height: 140px;
 }
 
 /* Nav Lists */
@@ -61,7 +61,7 @@ nav {
 
 .nav-left li,
 .nav-right li {
-  margin: 20px 10px;
+  margin: 20px 20px;
 }
 
 /* Links */
@@ -69,8 +69,8 @@ nav ul li a {
   color: #84634A;
   text-decoration: none;
   font-size: 18px;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 8px 5px;
+  border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
   font-weight: bold;
 }
@@ -104,7 +104,7 @@ footer {
     font-size: 16px;
     color: #84634A;
 }
-@media (max-width: 1275px) {
+@media (max-width: 1368px) {
     nav{
         margin-top: 0;
     }
