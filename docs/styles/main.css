@@ -13,159 +13,137 @@ body {
 }
 
 
-/* Navbar */
+
 nav {
-    background-color: #3D1F12;
-    height: 70px;
-    width: 90%;
-    padding: 10px 1px;
-    position: relative;
-    margin-top: 10px;
-    display: flex;
-    left: 3.5%;
+  background-color: #3D1F12;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: 10%;
 }
 
-/* Left and Right Nav */
-.nav-left ul {
-     list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    left: 50px;
-    margin-top: 100px;
-}
-.nav-right ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    right: 0px;
-    margin-top: 100px;
+/* Flex Wrapper */
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.nav-left ul li,
-.nav-right ul li {
-    margin: 50px 15px;
+/* Logo Centered */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2; /* stays in center on desktop */
 }
 
+.logo-img {
+  width: 80px;
+  height: auto;
+}
+
+/* Nav Lists */
+.nav-left,
+.nav-right {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+  order: 1;
+}
+
+.nav-right {
+  order: 3;
+}
+
+.nav-left li,
+.nav-right li {
+  margin: 20px 10px;
+}
+
+/* Links */
 nav ul li a {
-    color:  #84634A;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-weight: bold;
+  color: #84634A;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    background-color: #F5F5DC;
-    /*color: #3D1F12;*/
+  background-color: #F5F5DC;
+  color: #3D1F12;
 }
 
-/* Center Logo */
-nav .logo {
-    color:  #84634A;
-    font-size: 50px;
-    font-family: 'TBJ Palatino', serif;
-    font-weight: bold;
-    cursor: pointer;
-    letter-spacing: 1px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 130px;
-}
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10px;
-    cursor: pointer;
+/* Hamburger Menu Button */
+.bat-button {
+  font-size: 30px;
+  color: #84634A;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
 
-.logo-img {
-    width: 80px; /* Adjust as needed */
-    height: auto;
-    border-radius: 50%; /* Optional: circular */
-    margin-bottom: 10px; /* Space between image and text */
-    position: relative;
-    top: -90px; /* Move image higher */
+#check {
+  display: none;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 16px;
     color: #84634A;
 }
-
-/* Hamburger Button */
-.bat-button {
-    font-size: 30px;
-    color:#84634A;
-    cursor: pointer;
-    display: none; /* Hide by default */
-    position: absolute;
-    left: 20px;
-}
-#check {
-    display: none; /* Already removes it from layout */
-}
-
-/* Media Query for Mobile Screens */
 @media (max-width: 1275px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
+    nav{
+        margin-top: 0;
     }
+  .nav-wrapper {
+    flex-direction: column;
+    align-items: center; /* ✅ This centers child items horizontally */
+    justify-content: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
 
-    /* Show hamburger menu */
-    .bat-button {
-        display: block;
-        top: 20px;
-    }
+  #check:checked ~ .nav-wrapper {
+    max-height: 1000px;
+  }
 
-    /* Hide nav links by default with animation */
-    .nav-left ul,
-    .nav-right ul {
-        flex-direction: column;
-        position: static;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.5s ease-in-out;
-        width: 100%;
-        margin-top: 20px;
-        margin-left: -40px;
-    }
+  .nav-left,
+  .nav-right {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center; /* helps center inline text if needed */
+  }
 
-    /* When checkbox is checked, show the nav links with animation */
-    #check:checked ~ .nav-left ul,
-    #check:checked ~ .nav-right ul {
-        display: flex;
-        max-height: 500px; /* Set large enough to fit your menu items */
-    }
+  .logo {
+    order: 2;
+    margin: 20px 0;
+  }
 
-    /* Center logo on top */
-    nav .logo {
-        position: static;
-        transform: none;
-        margin-top: 10px;
-        text-align: center;
-    }
-        .logo {
-        position: static;
-        transform: none;
-        margin-top: 10px;
-        text-align: center;
-    }
+  .logo-img {
+    display: block;
+    margin: 0 auto;
+  }
 
-    /* Ensure the image is centered */
-    .logo-img {
-        display: block;
-        margin: 0 auto;
-        top: -10px;
-    }
-
-    .nav-left ul li,
-    .nav-right ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
+  .bat-button {
+    display: block;
+  }
 }
