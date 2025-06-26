@@ -23,9 +23,15 @@ header h1 {
   font-size: 48px;
   margin-bottom: 20px;
   color:#84634A;
-  font-family: 'Quiche Sans', sans-serif;
+font-family: 'TBJ Palatino', serif;
   text-align: center;
  
+}
+
+.name{
+    font-family: 'TBJ Palatino', serif;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .container {
