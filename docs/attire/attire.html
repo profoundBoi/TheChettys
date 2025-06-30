@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/5b1876fb7a.js" crossorigin="anonymous"></script>
+    <script src="../attire/attire.js" defer></script>
 </head>
 <body>
 <nav>
@@ -70,7 +71,14 @@
 
   </section>
 </main>
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Preview" />
+  <div class="arrow left" onclick="prevImage()">&#10094;</div>
+  <div class="arrow right" onclick="nextImage()">&#10095;</div>
+</div>
 
+<script src="lightbox.js"></script> <!-- Link to your JS file -->
 <footer>
       <p>&copy; 2025 Joshua Chetty & Kindle Natasha Van Heerden</p>
 </footer>
