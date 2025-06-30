@@ -1,0 +1,85 @@
+header {
+  text-align: center;
+  margin-top: 80px;
+  padding: 0 20px;
+}
+
+header h1 {
+  font-family: 'TBJ Palatino', serif;
+  font-size: 42px;
+  color: #84634A;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+}
+
+/* Section Container */
+main section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Section Title */
+section h2 {
+  font-family: 'TBJ Palatino', serif;
+  font-size: 32px;
+  color: #84634A;
+  margin-bottom: 30px;
+}
+
+/* Style for all figures */
+figure {
+  margin: 20px;
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+figure img:hover {
+  transform: scale(1.05);
+}
+
+figcaption {
+  font-family: 'Quiche Sans', sans-serif;
+  font-size: 16px;
+  color: #F5F5DC;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  figure {
+    width: 45%;
+    margin: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  section h2 {
+    font-size: 26px;
+  }
+
+  figure {
+    width: 90%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  figcaption {
+    font-size: 15px;
+  }
+}
