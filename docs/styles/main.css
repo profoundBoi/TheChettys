@@ -6,16 +6,28 @@
     font-style: normal;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
-    font-family: 'TBJ Palatino', serif;
-    background-color: #3D1F12;
-    color: #333;
+  font-family: 'TBJ Palatino', serif;
+  background-color: #3D1F12;
+  color: #333;
+
+  background-image: url('../Images/BG/BG4.png');
+  background-repeat: repeat-y;           /* Repeat only vertically */
+  background-position: left top;         /* Start from top-left */
+  background-size: 100% auto;            /* Stretch image to fill full width */
+  background-attachment: fixed;          /* Optional: background stays fixed on scroll */
 }
 
 
 
 nav {
-  background-color: #3D1F12;
+ 
   padding: 10px 0;
   width: 100%;
   position: relative;
@@ -90,6 +102,9 @@ nav ul li a.active {
   position: absolute;
   left: 20px;
   top: 20px;
+  background-color: #3D1F12;
+padding: 2px 25px;
+
 }
 
 #check {

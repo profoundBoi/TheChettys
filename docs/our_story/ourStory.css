@@ -1,0 +1,59 @@
+.our-story {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Quiche Sans', sans-serif;
+  line-height: 1.8;
+  color: #84634A;
+ 
+
+}
+
+
+.our-story section {
+ 
+  padding: 30px;
+  border-radius: 15px;
+
+
+}
+
+.our-story p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.our-story strong {
+  color: #84634A;
+  font-weight: bold;
+}
+
+.our-story em {
+  font-style: italic;
+  color: #84634A;
+}
+
+/* Header Title */
+header h1 {
+  text-align: center;
+  font-family: 'TBJ Palatino', serif;
+  font-size: 48px;
+  color: #84634A;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .our-story p {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 36px;
+  }
+
+  .our-story section {
+    padding: 20px;
+  }
+}

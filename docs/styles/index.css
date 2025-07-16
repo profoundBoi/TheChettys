@@ -10,6 +10,7 @@
 
 
 
+
 /* Header Styling */
 header {
     text-align: left;
@@ -79,6 +80,7 @@ figure {
     min-width: 100px;
     min-height: 1px;
     text-align: center;
+  
 }
 
 .responsive-img {
