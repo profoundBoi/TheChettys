@@ -17,7 +17,7 @@ body {
   background-color: #3D1F12;
   color: #333;
 
-  background-image: url('../Images/BG/BG4.png');
+  /*background-image: url('../Images/BG/BG4.png');*/
   background-repeat: repeat-y;           /* Repeat only vertically */
   background-position: left top;         /* Start from top-left */
   background-size: 100% auto;            /* Stretch image to fill full width */
