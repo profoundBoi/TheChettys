@@ -1,0 +1,74 @@
+.wedding-party {
+  padding: 40px 20px;
+}
+
+.groomsman-profile {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.groomsman-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.groomsman-image img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #84634A;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.groomsman-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 700px;
+}
+
+.groomsman-text h2 {
+  font-size: 32px;
+  color: #84634A;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.groomsman-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  color: #F5F5DC;
+}
+
+/* Alternate layout for image on right */
+.connor-layout {
+  flex-direction: row-reverse;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .groomsman-content,
+  .connor-layout {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .groomsman-text h2 {
+    text-align: center;
+  }
+
+  .groomsman-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
