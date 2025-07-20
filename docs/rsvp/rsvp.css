@@ -1,125 +1,69 @@
-header {
+.rsvp-header {
   text-align: center;
-  padding: 60px 20px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
-  margin: 40px auto;
-  max-width: 900px;
+  padding: 3rem 1rem;
+  background-color: #f8f4ef;
+  border-bottom: 2px solid #ccc;
 }
 
-header h1 {
-  font-size: 42px;
+.rsvp-header h1 {
+  font-size: 2.5rem;
   color: #84634A;
-  font-family: 'Quiche Sans', serif;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-header p {
-  font-size: 20px;
-  color: #84634A;
-  font-family: 'Quiche Sans', serif;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
 .rsvp-container {
   max-width: 600px;
-  margin: 80px auto;
-  padding: 40px 30px;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #84634A;
-  border-radius: 16px;
-  border: 2px solid #84634A;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  font-family: 'Quiche Sans', serif;
+  margin: auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.rsvp-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #84634A !important;
-  font-size: 32px;
-  font-weight: bold;
-  font-family: 'Quiche Sans', serif;
-  border-bottom: 2px solid #84634A;
-  padding-bottom: 10px;
-}
-.rsvp-container input[type="text"] {
+#searchInput {
   width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 2px solid #84634A;
-  font-size: 16px;
-  color: #3D1F12;
-  background-color: #f7f4f0;
-  font-family: 'Quiche Sans', sans-serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.rsvp-container ul#suggestions {
+ul#suggestions {
   list-style: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid #84634A;
+  padding: 0;
+  margin: 0;
+}
+
+ul#suggestions li {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.guest-box {
+  border: 1px solid #ccc;
+  padding: 1rem;
   border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
+  margin-top: 1rem;
+  background-color: #fafafa;
 }
 
-.rsvp-container ul#suggestions li {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid #84634A;
-  transition: background-color 0.2s ease;
+.guest-box label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.rsvp-container ul#suggestions li:hover {
-  background-color: rgba(132, 99, 74, 0.2);
-}
-
-.group-members {
-  margin-bottom: 20px;
-}
-
-.group-members label {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #84634A;
-}
-
-.group-members input[type="checkbox"] {
-  margin-right: 10px;
-  transform: scale(1.2);
-  accent-color: #84634A;
-}
-
-.rsvp-container button {
+button {
+  padding: 0.75rem 1.5rem;
   background-color: #84634A;
-  color: #F5F5DC;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-family: 'Quiche Sans', sans-serif;
+  color: white;
   border: none;
   border-radius: 8px;
+  margin-top: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-.rsvp-container button:hover {
-  background-color: #3D1F12;
-  transform: scale(1.05);
-}
-
 /* Mobile Adjustments */
 @media (max-width: 600px) {
   .rsvp-container {
