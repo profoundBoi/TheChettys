@@ -1,73 +1,80 @@
-const searchInput = document.getElementById("searchInput");
-const resultsContainer = document.getElementById("resultsContainer");
-const submitBtn = document.getElementById("submitBtn");
+const API_URL = "https://script.google.com/macros/s/AKfycbzRAOzUQhV7VNSIM1s5UKrPyiTgbHaxoleO4VQuau0bn4nzHmOHyxZkZpkKD7opX8OvBA/exec ";
+let guestList = [];
 
-let filtered = []; // ✅ Make this accessible to both listeners
+const searchInput = document.getElementById("searchInput");
+const suggestions = document.getElementById("suggestions");
+const guestFormContainer = document.getElementById("guestFormContainer");
+
+async function fetchGuestList() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+    guestList = data.guestList || [];
+  } catch (err) {
+    alert("Failed to fetch guest list.");
+    console.error(err);
+  }
+}
+
+function createGuestForm(group) {
+  guestFormContainer.innerHTML = `
+    <h3>${group.groupName}</h3>
+    <form id="rsvpForm">
+      ${group.members.map(member => `
+        <div class="member-checkbox">
+          <input type="checkbox" name="attending" value="${member}" id="${member}" />
+          <label for="${member}">${member}</label>
+        </div>
+      `).join('')}
+      <button type="submit">Submit RSVP</button>
+    </form>
+  `;
+
+  document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const checkboxes = document.querySelectorAll('input[name="attending"]:checked');
+    if (checkboxes.length === 0) {
+      alert("Please select at least one person attending.");
+      return;
+    }
+    const selected = Array.from(checkboxes).map(cb => cb.value);
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ group: group.groupName, attending: selected })
+      });
+      const result = await res.json();
+      alert("Thank you for RSVPing!");
+      guestFormContainer.innerHTML = "";
+      searchInput.value = "";
+      suggestions.innerHTML = "";
+    } catch (err) {
+      alert("Failed to submit RSVP.");
+      console.error(err);
+    }
+  });
+}
 
 searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase();
-  resultsContainer.innerHTML = "";
+  const value = searchInput.value.toLowerCase();
+  suggestions.innerHTML = "";
 
-  if (query.length < 2) return;
+  if (value.length === 0) return;
 
-  filtered = guestList.filter(group =>
-    group.members.some(member => member.toLowerCase().includes(query))
+  const matches = guestList.filter(group =>
+    group.members.some(name => name.toLowerCase().includes(value))
   );
 
-  filtered.forEach(group => {
-    const groupDiv = document.createElement("div");
-    groupDiv.classList.add("family-group");
-
-    groupDiv.innerHTML = `
-      <h3>${group.groupName}</h3>
-      ${group.members.map(member => `
-        <label class="attendee">
-          <input type="checkbox" value="${member}" />
-          ${member}
-        </label>
-      `).join("")}
-    `;
-
-    resultsContainer.appendChild(groupDiv);
+  matches.forEach(group => {
+    const li = document.createElement("li");
+    li.textContent = group.groupName;
+    li.addEventListener("click", () => {
+      createGuestForm(group);
+      suggestions.innerHTML = "";
+    });
+    suggestions.appendChild(li);
   });
 });
 
-submitBtn.addEventListener("click", () => {
-  if (filtered.length === 0) {
-    alert("Please search and select your names before submitting.");
-    return;
-  }
-
-  const groupName = filtered[0]?.groupName || "Unknown Group";
-  const checked = Array.from(resultsContainer.querySelectorAll("input[type='checkbox']:checked"))
-                       .map(input => input.value);
-
-  if (checked.length === 0) {
-    alert("Please tick who will be attending.");
-    return;
-  }
-
-  fetch("https://script.google.com/macros/s/AKfycbxY_nSGXacXZqsvtBeXLGWIoJCWtFT5FBkJv48FhxFq4S9kmiv7lWf_RVe0LUbCmGq1/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      groupName: groupName,
-      responses: checked.map(name => ({
-        name: name,
-        attending: true
-      }))
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    alert("RSVP submitted! Thank you.");
-    searchInput.value = "";
-    resultsContainer.innerHTML = "";
-  })
-  .catch(error => {
-    console.error("Error submitting RSVP:", error);
-    alert("There was a problem. Please try again.");
-  });
-});
+window.onload = fetchGuestList;

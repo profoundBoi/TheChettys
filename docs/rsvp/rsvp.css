@@ -1,92 +1,128 @@
-/* RSVP Section Container */
-.rsvp-section {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  color: #F5F5DC;
-}
-
-/* Section Heading */
-.rsvp-section h2 {
-  font-size: 32px;
+header {
   text-align: center;
-  margin-bottom: 40px;
+  padding: 60px 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+header h1 {
+  font-size: 42px;
   color: #84634A;
-  font-family: 'TBJ Palatino', serif;
+  font-family: 'Quiche Sans', serif;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Search Bar */
-#guestSearch {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
+header p {
+  font-size: 20px;
+  color: #84634A;
+  font-family: 'Quiche Sans', serif;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.rsvp-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #84634A;
+  border-radius: 16px;
   border: 2px solid #84634A;
-  border-radius: 8px;
-  background-color: #F5F5DC;
-  color: #3D1F12;
-  font-family: 'TBJ Palatino', serif;
-  box-sizing: border-box;
-  margin-bottom: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  font-family: 'Quiche Sans', serif;
 }
 
-/* Guest List Container */
-#guestList {
+.rsvp-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #84634A !important;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Quiche Sans', serif;
+  border-bottom: 2px solid #84634A;
+  padding-bottom: 10px;
+}
+.rsvp-container input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 2px solid #84634A;
+  font-size: 16px;
+  color: #3D1F12;
+  background-color: #f7f4f0;
+  font-family: 'Quiche Sans', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rsvp-container ul#suggestions {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #84634A;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.rsvp-container ul#suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #84634A;
+  transition: background-color 0.2s ease;
+}
+
+.rsvp-container ul#suggestions li:hover {
+  background-color: rgba(132, 99, 74, 0.2);
+}
+
+.group-members {
   margin-bottom: 20px;
 }
 
-/* Group Title */
-.group-name {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
-  color: #F5F5DC;
+.group-members label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #84634A;
 }
 
-/* Guest Name + Checkbox */
-.guest-checkbox {
-  display: flex;
-  align-items: center;
-  margin: 8px 0;
-  gap: 10px;
-  color: #F5F5DC;
-}
-
-/* Checkbox */
-.guest-checkbox input[type="checkbox"] {
+.group-members input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
   accent-color: #84634A;
-  width: 18px;
-  height: 18px;
 }
 
-/* Submit Button */
-#submitRSVP {
+.rsvp-container button {
   background-color: #84634A;
   color: #F5F5DC;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: 'Quiche Sans', sans-serif;
   border: none;
-  padding: 14px 28px;
-  font-size: 18px;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: 'TBJ Palatino', serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-#submitRSVP:hover {
-  background-color: #A57B56;
+.rsvp-container button:hover {
+  background-color: #3D1F12;
+  transform: scale(1.05);
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .rsvp-section h2 {
-    font-size: 24px;
-  }
-
-  #submitRSVP {
-    width: 100%;
-  }
-
-  .guest-checkbox {
-    flex-direction: row;
-    justify-content: flex-start;
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .rsvp-container {
+    padding: 30px 20px;
   }
 }
