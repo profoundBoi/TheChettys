@@ -15,7 +15,7 @@
   color: #3D1F12;
 }
 
-#searchInput {
+#guestSearch {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -26,38 +26,36 @@
   color: #3D1F12;
 }
 
-#suggestions {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-  border: 1px solid #84634A;
-  border-radius: 8px;
-  max-height: 150px;
-  overflow-y: auto;
-  background-color: #F5F5DC;
-  cursor: pointer;
-}
-
-#suggestions li {
-  padding: 8px 12px;
+.guest-entry {
+  padding: 10px 0;
   border-bottom: 1px solid #84634A;
+  font-family: 'TBJ Palatino', serif;
+  color: #3D1F12;
 }
 
-#suggestions li:hover {
-  background-color: #84634A;
-  color: #F5F5DC;
+.guest-entry p {
+  margin: 0 0 6px 0;
 }
 
-#guestFormContainer label {
-  display: block;
-  margin-bottom: 10px;
+.guest-entry label {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.rsvp-checkbox {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 8px;
   cursor: pointer;
 }
 
-#guestFormContainer input[type="checkbox"] {
-  margin-right: 10px;
+#guestResults p,
+#guestResults div {
+  user-select: none;
 }
 
+/* Button styling if you add buttons later */
 #guestFormContainer button {
   background-color: #84634A;
   color: #F5F5DC;
@@ -75,6 +73,7 @@
 #guestFormContainer button:hover {
   background-color: #3D1F12;
 }
+
 /* Mobile Adjustments */
 @media (max-width: 600px) {
   .rsvp-container {

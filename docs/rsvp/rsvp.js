@@ -1,6 +1,6 @@
 const { createClient } = supabase;
 const SUPABASE_URL = "https://kucidicpvzfbhzcfqxer.supabase.co";
-const SUPABASE_KEY = "YOUR_SUPABASE_KEY_HERE";
+const SUPABASE_KEY = "YOUR_SUPABASE_KEY_HERE"; // Replace with your actual key
 
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -59,7 +59,7 @@ guestSearch.addEventListener("input", async (e) => {
   try {
     const { data, error } = await supabaseClient
       .from("Guest")
-      .select("id, full_name, group_name, RSVP")  // select RSVP to get current status
+      .select("id, full_name, group_name, RSVP")
       .ilike("full_name", `%${query}%`);
 
     if (error) throw error;
@@ -69,7 +69,6 @@ guestSearch.addEventListener("input", async (e) => {
       return;
     }
 
-    // Render the guest list with RSVP checkboxes
     renderGuests(data);
 
   } catch (err) {
