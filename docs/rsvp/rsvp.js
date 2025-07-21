@@ -1,8 +1,12 @@
+// FIX: Destructure Supabase from the global 'supabase' object
+const { createClient } = supabase;
+
 const SUPABASE_URL = "https://kucidicpvzfbhzcfqxer.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1Y2lkaWNwdnpmYmh6Y2ZxeGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMxMDg2MzcsImV4cCI6MjA2ODY4NDYzN30.wnRNF2a4xbQLsMstq9hNO9lgOs_xEw3l3mzDfyI3itQ";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = createClient(SUPABASE_URL, SUPABASE_KEY); // ✅ Now using 'client'
 
+// DOM and RSVP logic
 document.addEventListener("DOMContentLoaded", () => {
   const guestSearch = document.getElementById("guestSearch");
   const groupDisplay = document.getElementById("groupDisplay");
@@ -15,8 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Search guest
-    const { data: guestData, error } = await supabase
+    const { data: guestData, error } = await client
       .from("Guest")
       .select("*")
       .ilike("fullName", `%${query}%`);
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const groupName = guestData[0].groupName;
 
-    const { data: groupGuests, error: groupError } = await supabase
+    const { data: groupGuests, error: groupError } = await client
       .from("Guest")
       .select("*")
       .eq("groupName", groupName);
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const id = checkbox.dataset.id;
         const isAttending = checkbox.checked;
 
-        await supabase
+        await client
           .from("Guest")
           .update({ rsvp: isAttending })
           .eq("id", id);
