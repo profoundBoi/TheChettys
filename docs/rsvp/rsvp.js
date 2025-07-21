@@ -76,3 +76,13 @@ guestSearch.addEventListener("input", async (e) => {
     guestResults.innerHTML = "<p>Error searching guests.</p>";
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const testData = [{
+    id: 1,
+    full_name: "Test Guest",
+    group_name: "Family",
+    RSVP: false
+  }];
+  renderGuests(testData);
+});
