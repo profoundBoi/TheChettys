@@ -1,64 +1,73 @@
-const apiUrl = "https://script.google.com/macros/s/AKfycbwsXBfi-sfKpOsUBRUxDHCOwaA-pSq8MxB9oM39f742P1peD7ZOMcV_bMF9vyjax2yW/exec";
+// Replace with your real values from Supabase → Project → Settings → API
+const SUPABASE_URL = "https://kucidicpvzfbhzcfqxer.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1Y2lkaWNwdnpmYmh6Y2ZxeGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMxMDg2MzcsImV4cCI6MjA2ODY4NDYzN30.wnRNF2a4xbQLsMstq9hNO9lgOs_xEw3l3mzDfyI3itQ";
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 document.getElementById("guestSearch").addEventListener("input", async (e) => {
   const query = e.target.value.trim();
 
-  if (query.length < 3) {
-    document.getElementById("guestList").innerHTML = "";
-    document.getElementById("submitBtn").style.display = "none";
+  if (query.length < 2) {
+    document.getElementById("groupDisplay").innerHTML = "";
     return;
   }
 
-  try {
-    const response = await fetch(`${apiUrl}?action=search&name=${encodeURIComponent(query)}`);
-    const data = await response.json();
+  // Search for guest by name
+  const { data, error } = await supabase
+    .from("Guest")
+    .select("*")
+    .ilike("fullName", `%${query}%`);
 
-    const guestList = document.getElementById("guestList");
-    guestList.innerHTML = "";
+  if (error || !data || data.length === 0) {
+    document.getElementById("groupDisplay").innerHTML = `<p>No guest found.</p>`;
+    return;
+  }
 
-    if (!Array.isArray(data) || data.length === 0) {
-      guestList.innerHTML = "<p>No matches found.</p>";
-      document.getElementById("submitBtn").style.display = "none";
-      return;
+  const groupName = data[0].groupName;
+
+  // Get all guests in the same group
+  const { data: groupGuests, error: groupError } = await supabase
+    .from("Guest")
+    .select("*")
+    .eq("groupName", groupName);
+
+  if (groupError) {
+    document.getElementById("groupDisplay").innerHTML = `<p>Could not fetch group.</p>`;
+    return;
+  }
+
+  // Display checkboxes
+  const guestHTML = groupGuests
+    .map(
+      guest => `
+        <label>
+          <input type="checkbox" data-id="${guest.id}" ${guest.rsvp ? "checked" : ""}>
+          ${guest.fullName}
+        </label><br>
+      `
+    )
+    .join("");
+
+  document.getElementById("groupDisplay").innerHTML = `
+    <h3>Group: ${groupName}</h3>
+    <form id="rsvpForm">${guestHTML}</form>
+    <button id="submitRSVP" type="button">Submit RSVP</button>
+  `;
+
+  document.getElementById("submitRSVP").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const checkboxes = document.querySelectorAll("#rsvpForm input[type='checkbox']");
+    for (const checkbox of checkboxes) {
+      const id = checkbox.dataset.id;
+      const isAttending = checkbox.checked;
+
+      await supabase
+        .from("Guest")
+        .update({ rsvp: isAttending })
+        .eq("id", id);
     }
 
-    data.forEach(name => {
-      const label = document.createElement("label");
-      label.innerHTML = `
-        <input type="checkbox" name="guest" value="${name}" checked>
-        ${name}
-      `;
-      guestList.appendChild(label);
-      guestList.appendChild(document.createElement("br"));
-    });
-
-    document.getElementById("submitBtn").style.display = "block";
-  } catch (err) {
-    console.error("Error fetching guests:", err);
-  }
-});
-
-document.getElementById("submitBtn").addEventListener("click", async () => {
-  const selectedGuests = Array.from(document.querySelectorAll('input[name="guest"]:checked')).map(input => input.value);
-  if (selectedGuests.length === 0) return alert("Please select at least one person attending.");
-
-  try {
-    const formData = new FormData();
-    formData.append("action", "submit");
-    formData.append("attending", selectedGuests.join(", "));
-
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      body: formData,
-    });
-
-    const result = await response.text();
-    alert("RSVP submitted. Thank you!");
-    document.getElementById("guestList").innerHTML = "";
-    document.getElementById("submitBtn").style.display = "none";
-    document.getElementById("guestSearch").value = "";
-  } catch (err) {
-    console.error("Error submitting RSVP:", err);
-    alert("Error submitting RSVP. Try again later.");
-  }
+    alert("RSVP submitted successfully!");
+  });
 });

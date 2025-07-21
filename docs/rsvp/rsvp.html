@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../styles/main.css"/>
   <link rel="stylesheet" href="../rsvp/rsvp.css"/>
   <script src="../rsvp/rsvp.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
     <!--<script defer src="../rsvp/guest.js"></script>-->
     <!--<script defer src="../rsvp/rsvp.js"></script>-->
 
@@ -47,14 +49,10 @@
   </header>
 
   <main class="rsvp-container">
-  <section class="rsvp-section">
-    <h2>RSVP</h2>
-    <p>Search your name to respond</p>
-    
-    <input type="text" id="guestSearch" placeholder="Enter your name..." />
-    <div id="guestList"></div>
-    <button id="submitBtn" style="display: none;">Submit RSVP</button>
-  </section>
+   <div>
+      <input type="text" id="guestSearch" placeholder="Search your name..." />
+      <div id="groupDisplay"></div>
+    </div>
   </main>
 
   <footer></footer>
