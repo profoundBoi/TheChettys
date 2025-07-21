@@ -20,9 +20,9 @@ guestSearch.addEventListener("input", async (e) => {
 
   try {
     const { data, error } = await supabaseClient
-      .from("Guest") // ✅ Use your actual table name here (case sensitive)
+      .from("Guest") //  Use your actual table name here (case sensitive)
       .select("*")
-      .ilike("full_name", `%${query}%`); // ✅ Use your correct column name
+      .ilike("full_name", `%${query}%`); // Use your correct column name
 
     if (error) throw error;
 
