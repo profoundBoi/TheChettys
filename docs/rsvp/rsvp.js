@@ -1,4 +1,4 @@
-const apiUrl = "https://script.google.com/macros/s/AKfycbwW3U2NHHUP2wkRUdKhPtYcnFifnpCJExhDMZ_xuVI5nPtJzgP2J8mJfB33Fxl-QU6R/exec";
+const apiUrl = "https://script.google.com/macros/s/AKfycbyWeUxkvlqWMp3DVTGpjuyyk-r1IF9kcGEtTdvzc05FX1FyL2WerKS_8CrGtNtwwtJd/exec";
 
 document.getElementById("guestSearch").addEventListener("input", async (e) => {
   const query = e.target.value.trim();
