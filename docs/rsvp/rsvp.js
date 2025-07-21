@@ -1,71 +1,64 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzRAOzUQhV7VNSIM1s5UKrPyiTgbHaxoleO4VQuau0bn4nzHmOHyxZkZpkKD7opX8OvBA/exec ';
+const apiUrl = "https://script.google.com/macros/s/AKfycbxbOKYBH4WZWVMxsLtK9qdBplkY82edtlRG4o0yPtbTYCcnaGYQZlQLnAnDJvsOB-k/exec";
 
-const searchInput = document.getElementById('searchInput');
-const suggestions = document.getElementById('suggestions');
-const guestFormContainer = document.getElementById('guestFormContainer');
+document.getElementById("guestSearch").addEventListener("input", async (e) => {
+  const query = e.target.value.trim();
 
-searchInput.addEventListener('input', async () => {
-  const inputValue = searchInput.value.trim();
-  suggestions.innerHTML = '';
-
-  if (inputValue.length < 2) return;
+  if (query.length < 3) {
+    document.getElementById("guestList").innerHTML = "";
+    document.getElementById("submitBtn").style.display = "none";
+    return;
+  }
 
   try {
-    const res = await fetch(`https://script.google.com/macros/s/AKfycbzRAOzUQhV7VNSIM1s5UKrPyiTgbHaxoleO4VQuau0bn4nzHmOHyxZkZpkKD7opX8OvBA/exec?action=search&name=${encodeURIComponent(inputValue)}`);
-    const data = await res.json();
+    const response = await fetch(`${apiUrl}?action=search&name=${encodeURIComponent(query)}`);
+    const data = await response.json();
 
-    data.forEach(group => {
-      const li = document.createElement('li');
-      li.textContent = group.group_name;
-      li.addEventListener('click', () => showForm(group));
-      suggestions.appendChild(li);
+    const guestList = document.getElementById("guestList");
+    guestList.innerHTML = "";
+
+    if (!Array.isArray(data) || data.length === 0) {
+      guestList.innerHTML = "<p>No matches found.</p>";
+      document.getElementById("submitBtn").style.display = "none";
+      return;
+    }
+
+    data.forEach(name => {
+      const label = document.createElement("label");
+      label.innerHTML = `
+        <input type="checkbox" name="guest" value="${name}" checked>
+        ${name}
+      `;
+      guestList.appendChild(label);
+      guestList.appendChild(document.createElement("br"));
     });
+
+    document.getElementById("submitBtn").style.display = "block";
   } catch (err) {
-    console.error('Error fetching guests:', err);
+    console.error("Error fetching guests:", err);
   }
 });
 
-function showForm(group) {
-  suggestions.innerHTML = '';
-  searchInput.value = group.group_name;
+document.getElementById("submitBtn").addEventListener("click", async () => {
+  const selectedGuests = Array.from(document.querySelectorAll('input[name="guest"]:checked')).map(input => input.value);
+  if (selectedGuests.length === 0) return alert("Please select at least one person attending.");
 
-  guestFormContainer.innerHTML = `
-    <form id="rsvpForm">
-      <div class="guest-box">
-        ${group.guests.map(g => `
-          <label>
-            <input type="checkbox" name="attending" value="${g}" />
-            ${g}
-          </label>
-        `).join('')}
-      </div>
-      <input type="hidden" name="group" value="${group.group_name}" />
-      <button type="submit">Submit RSVP</button>
-    </form>
-  `;
+  try {
+    const formData = new FormData();
+    formData.append("action", "submit");
+    formData.append("attending", selectedGuests.join(", "));
 
-  document.getElementById('rsvpForm').addEventListener('submit', async e => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      body: formData,
+    });
 
-    const attending = Array.from(form.querySelectorAll('input[name="attending"]:checked')).map(cb => cb.value);
-
-    try {
-      await fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify({
-          group: formData.get('group'),
-          attending
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      guestFormContainer.innerHTML = `<p>Thank you for your RSVP!</p>`;
-    } catch (err) {
-      guestFormContainer.innerHTML = `<p style="color:red;">Failed to submit RSVP. Please try again later.</p>`;
-    }
-  });
-}
+    const result = await response.text();
+    alert("RSVP submitted. Thank you!");
+    document.getElementById("guestList").innerHTML = "";
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("guestSearch").value = "";
+  } catch (err) {
+    console.error("Error submitting RSVP:", err);
+    alert("Error submitting RSVP. Try again later.");
+  }
+});

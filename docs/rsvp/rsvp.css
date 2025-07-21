@@ -1,68 +1,79 @@
-.rsvp-header {
-  text-align: center;
-  padding: 3rem 1rem;
-  background-color: #f8f4ef;
-  border-bottom: 2px solid #ccc;
-}
-
-.rsvp-header h1 {
-  font-size: 2.5rem;
-  color: #84634A;
-}
-
 .rsvp-container {
   max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 80px auto 40px;
+  padding: 30px;
+  background-color: #F5F5DC;
+  color: #3D1F12;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  font-family: 'TBJ Palatino', serif;
+}
+
+.rsvp-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #3D1F12;
 }
 
 #searchInput {
   width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #84634A;
+  font-size: 16px;
+  font-family: 'TBJ Palatino', serif;
+  color: #3D1F12;
 }
 
-ul#suggestions {
+#suggestions {
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-
-ul#suggestions li {
-  padding: 0.5rem;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-
-.guest-box {
-  border: 1px solid #ccc;
-  padding: 1rem;
+  margin: 0 0 20px 0;
+  border: 1px solid #84634A;
   border-radius: 8px;
-  margin-top: 1rem;
-  background-color: #fafafa;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #F5F5DC;
+  cursor: pointer;
 }
 
-.guest-box label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+#suggestions li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #84634A;
 }
 
-button {
-  padding: 0.75rem 1.5rem;
+#suggestions li:hover {
   background-color: #84634A;
-  color: white;
+  color: #F5F5DC;
+}
+
+#guestFormContainer label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#guestFormContainer input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#guestFormContainer button {
+  background-color: #84634A;
+  color: #F5F5DC;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: 'TBJ Palatino', serif;
   border: none;
   border-radius: 8px;
-  margin-top: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+#guestFormContainer button:hover {
+  background-color: #3D1F12;
 }
 /* Mobile Adjustments */
 @media (max-width: 600px) {

@@ -41,19 +41,24 @@
   </div>
 </nav>
 
-<header>
+  <header>
     <h1>You're Invited!</h1>
     <p>Please RSVP below to let us know who's attending.</p>
-</header>
+  </header>
 
   <main class="rsvp-container">
-    <input type="text" id="searchInput" placeholder="Search your name..." />
-    <ul id="suggestions"></ul>
-    <div id="guestFormContainer"></div>
+  <section class="rsvp-section">
+    <h2>RSVP</h2>
+    <p>Search your name to respond</p>
+    
+    <input type="text" id="guestSearch" placeholder="Enter your name..." />
+    <div id="guestList"></div>
+    <button id="submitBtn" style="display: none;">Submit RSVP</button>
+  </section>
   </main>
 
-<footer>
-</footer>
+  <footer></footer>
 
+  <!--<script src="../rsvp/rsvp.js"></script>-->
 </body>
 </html>
