@@ -4,7 +4,7 @@ const { createClient } = supabase;
 const SUPABASE_URL = "https://kucidicpvzfbhzcfqxer.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 
-const client = createClient(SUPABASE_URL, SUPABASE_KEY); // ✅ Now using 'client'
+const client = createClient(SUPABASE_URL, SUPABASE_KEY); //  Now using 'client'
 
 // DOM and RSVP logic
 document.addEventListener("DOMContentLoaded", () => {
