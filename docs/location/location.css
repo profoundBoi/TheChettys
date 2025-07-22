@@ -23,8 +23,11 @@ main {
     text-align: center; /* Center text within the article */
       line-height: 1.6;
         max-width: 800px;
-  margin: 10px auto;
-  padding: 20px;
+    margin: 10px auto;
+     background-color: rgba(255, 255, 255, 0.05);
+     padding: 3% 3%;
+     border-radius: 16px;
+     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 1368px) {
@@ -36,5 +39,6 @@ main {
   main {
     font-size: 20px; /* smaller paragraph text */
     padding: 15px;
+    margin: 10px auto;
   }
 }

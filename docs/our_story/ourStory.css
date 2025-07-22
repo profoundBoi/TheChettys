@@ -47,7 +47,7 @@ header h1 {
   font-size: 48px;
   color: #84634A;
   margin-bottom: 30px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
 }
 
 /* Responsive Adjustments */

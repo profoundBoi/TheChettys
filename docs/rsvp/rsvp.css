@@ -8,18 +8,46 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   font-family: 'TBJ Palatino', serif;
 }
+header {
+    text-align: left;
+    padding: 50px 20px 20px 20px;
+    color: #3D1F12;
+  /* Push header closer to the left edge */
+    margin-top: -50px; /* Adjusted to match the nav height */
+}
+
+header h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color:#84634A;
+font-family: 'TBJ Palatino', serif;
+  text-align: center;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 20px;
+  color: #84634A;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Quiche Sans', sans-serif;
+}
+
 
 .rsvp-container h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #3D1F12;
 }
-input[type="checkbox"] {
-  display: inline-block !important;
-  width: 20px !important;
-  height: 20px !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+.rsvp-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  visibility: visible;
+  vertical-align: middle;
+  margin-right: 8px;
+  cursor: pointer;
 }
 
 #guestSearch {
@@ -29,14 +57,14 @@ input[type="checkbox"] {
   border-radius: 8px;
   border: 1px solid #84634A;
   font-size: 16px;
-  font-family: 'TBJ Palatino', serif;
+  font-family: 'Quiche Sans', sans-serif;
   color: #3D1F12;
 }
 
 .guest-entry {
   padding: 10px 0;
   border-bottom: 1px solid #84634A;
-  font-family: 'TBJ Palatino', serif;
+ font-family: 'Quiche Sans', sans-serif;
   color: #3D1F12;
 }
 
