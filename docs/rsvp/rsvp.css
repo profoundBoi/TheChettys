@@ -104,7 +104,21 @@ header p {
   display: block;
   margin: 20px auto 0 auto;
 }
+.submit-btn {
+  background-color: #84634A;
+  color: #F5F5DC;
+  padding: 8px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+.submit-btn:hover {
+  background-color: #3D1F12;
+}
 #guestFormContainer button:hover {
   background-color: #3D1F12;
 }

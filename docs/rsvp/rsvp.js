@@ -1,32 +1,51 @@
 const { createClient } = supabase;
+
 const SUPABASE_URL = "https://kucidicpvzfbhzcfqxer.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1Y2lkaWNwdnpmYmh6Y2ZxeGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMxMDg2MzcsImV4cCI6MjA2ODY4NDYzN30.wnRNF2a4xbQLsMstq9hNO9lgOs_xEw3l3mzDfyI3itQ"; // Replace with your actual key
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1Y2lkaWNwdnpmYmh6Y2ZxeGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMxMDg2MzcsImV4cCI6MjA2ODY4NDYzN30.wnRNF2a4xbQLsMstq9hNO9lgOs_xEw3l3mzDfyI3itQ";
 
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// DOM Elements
+// DOM elements
 const guestSearch = document.getElementById("guestSearch");
 const guestResults = document.getElementById("guestResults");
 
-// Helper: render guests with RSVP checkboxes
+// Render guest list
 function renderGuests(data) {
   guestResults.innerHTML = data
-    .map(guest => `
-      <div class="guest-entry" data-id="${guest.id}">
-        <p><strong>${guest.full_name}</strong> (${guest.group_name})</p>
-        <label>
-          <input type="checkbox" class="rsvp-checkbox" ${guest.RSVP ? "checked" : ""} />
-          Attending
-        </label>
-      </div>
-    `).join("");
+    .map((guest) => {
+      const isChecked = guest.RSVP ? "checked disabled" : "";
+      const showSubmit = guest.RSVP
+        ? ""
+        : `<button class="submit-btn" style="display:none;">Submit</button>`;
 
-  // Add listeners for the new checkboxes
-  document.querySelectorAll(".rsvp-checkbox").forEach(checkbox => {
-    checkbox.addEventListener("change", async (e) => {
-      const guestDiv = e.target.closest(".guest-entry");
-      const guestId = guestDiv.getAttribute("data-id");
-      const isAttending = e.target.checked;
+      return `
+        <div class="guest-entry" data-id="${guest.id}">
+          <p><strong>${guest.full_name}</strong> (${guest.group_name})</p>
+          <label>
+            <input type="checkbox" class="rsvp-checkbox" ${isChecked} />
+            Attending
+          </label>
+          ${showSubmit}
+        </div>
+      `;
+    })
+    .join("");
+
+  document.querySelectorAll(".guest-entry").forEach((entry) => {
+    const checkbox = entry.querySelector(".rsvp-checkbox");
+    const submitBtn = entry.querySelector(".submit-btn");
+
+    if (!checkbox || !submitBtn) return;
+
+    checkbox.addEventListener("change", () => {
+      // Show submit button only if checked
+      submitBtn.style.display = checkbox.checked ? "inline-block" : "none";
+    });
+
+    submitBtn.addEventListener("click", async () => {
+      const guestId = entry.getAttribute("data-id");
+      const isAttending = true;
 
       try {
         const { error } = await supabaseClient
@@ -36,18 +55,19 @@ function renderGuests(data) {
 
         if (error) throw error;
 
-        alert(`RSVP updated to ${isAttending ? "Attending" : "Not Attending"}`);
+        // Replace UI with confirmation message
+        entry.innerHTML = `
+          <p><strong>✅ RSVP received for ${entry.querySelector("strong").textContent}</strong></p>
+        `;
       } catch (err) {
-        console.error("Failed to update RSVP:", err);
-        alert("Error updating RSVP, please try again.");
-        // Revert checkbox state if error
-        e.target.checked = !isAttending;
+        console.error("Failed to submit RSVP:", err);
+        alert("Error submitting RSVP. Please try again.");
       }
     });
   });
 }
 
-// Search handler
+// Guest search input handler
 guestSearch.addEventListener("input", async (e) => {
   const query = e.target.value.trim();
 
@@ -70,19 +90,8 @@ guestSearch.addEventListener("input", async (e) => {
     }
 
     renderGuests(data);
-
   } catch (err) {
     console.error("Search failed:", err);
     guestResults.innerHTML = "<p>Error searching guests.</p>";
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const testData = [{
-    id: 1,
-    full_name: "Test Guest",
-    group_name: "Family",
-    RSVP: false
-  }];
-  renderGuests(testData);
 });
