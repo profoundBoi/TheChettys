@@ -8,6 +8,13 @@
     font-style: normal;
 }
 
+article, figure{
+     background-color: rgba(255, 255, 255, 0.05);
+     padding: 3% 3%;
+     border-radius: 16px;
+     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
 
 
 
@@ -26,6 +33,7 @@ header h1 {
   color:#84634A;
 font-family: 'TBJ Palatino', serif;
   text-align: center;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
  
 }
 
