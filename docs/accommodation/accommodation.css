@@ -1,0 +1,83 @@
+/* Font */
+@font-face {
+  font-family: 'TBJ Palatino';
+  src: url('../fonts/TBJ-Palatino-Mini-Edition-BF666949e24fdc5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Accommodation Section */
+#accommodation {
+  font-family: 'Quiche Sans', sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  color: #84634A;
+  line-height: 1.8;
+}
+
+#accommodation h2 {
+  font-family: 'TBJ Palatino', serif;
+  font-size: 48px;
+  color: #84634A;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+#accommodation p {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Table Styling */
+.accommodation-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+  color: #84634A;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.accommodation-table th,
+.accommodation-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #84634A;
+}
+
+.accommodation-table th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 20px;
+  color: #84634A;
+}
+
+.accommodation-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #accommodation {
+    padding: 20px;
+  }
+
+  .accommodation-table th,
+  .accommodation-table td {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #accommodation h2 {
+    font-size: 36px;
+  }
+
+  #accommodation p {
+    font-size: 16px;
+  }
+}
