@@ -42,3 +42,11 @@ main {
     margin: 10px auto;
   }
 }
+
+@media (max-width: 840px) {
+  main{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+}
