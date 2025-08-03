@@ -1,132 +1,84 @@
-header {
-  text-align: center;
-  margin-top: 80px;
-  padding: 0 20px;
-}
-
-header h1 {
-  font-family: 'TBJ Palatino', serif;
-  font-size: 42px;
-  color: #84634A;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 40px;
-}
-
-/* Section Container */
-main section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Section Title */
-section h2 {
-  font-family: 'TBJ Palatino', serif;
-  font-size: 32px;
-  color: #84634A;
-  margin-bottom: 30px;
-}
-
-/* Style for all figures */
 figure {
-  margin: 20px;
-  display: inline-block;
-  width: 250px;
-  vertical-align: top;
+  margin: 20px auto;
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px; /* general side padding */
+  box-sizing: border-box;
+}
+main{
+    background-color: rgba(255, 255, 255, 0.05);
+     padding: 3% 3%;
+     border-radius: 16px;
+     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+     margin-left: 5%;
+     margin-right: 5%;
 }
 
 figure img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
 figure img:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
-
+p {
+  font-family: 'Quiche Sans', sans-serif;
+  font-size: 25px;
+  line-height: 1.8;
+  color: #84634A; /* Soft cream tone for elegance */
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 0 20px;
+}
 figcaption {
   font-family: 'Quiche Sans', sans-serif;
   font-size: 16px;
   color: #F5F5DC;
   margin-top: 10px;
   line-height: 1.4;
-}
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  padding-top: 80px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
   text-align: center;
 }
-
-.lightbox img {
-  max-width: 80%;
-  max-height: 80vh;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #000;
+header {
+  text-align: center;
+  margin-top: 80px;
+  padding: 0 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.lightbox .close {
-  position: absolute;
-  top: 30px;
-  right: 50px;
-  color: #fff;
-  font-size: 40px;
-  cursor: pointer;
+header h1 {
+  font-family: 'TBJ Palatino', serif;
+  font-size: 48px;
+  color: #84634A; /* Earthy brown tone */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.arrow {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  font-size: 40px;
-  color: white;
-  user-select: none;
-  transform: translateY(-50%);
-  padding: 10px;
-}
-
-.arrow.left {
-  left: 30px;
-}
-.arrow.right {
-  right: 30px;
-}
-
-/* Responsive Layout */
-@media (max-width: 1024px) {
-  figure {
-    width: 45%;
-    margin: 15px;
-  }
-}
-
+/* Responsive Typography & Mobile Padding */
 @media (max-width: 768px) {
   header h1 {
     font-size: 32px;
   }
 
+    p {
+    font-size: 20px;
+    padding: 0 80px;
+  }
   section h2 {
     font-size: 26px;
   }
 
-  figure {
-    width: 40%;
-    margin: 10px auto;
-    display: block;
-  }
-
   figcaption {
     font-size: 15px;
+  }
+
+  figure {
+    padding: 0 10px; /* more noticeable space on mobile */
   }
 }
