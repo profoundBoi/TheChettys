@@ -28,9 +28,6 @@ header p {
   line-height: 1.6;
 }
 
-/* =========================
-   ARTICLE CONTAINER
-========================= */
 article {
   background-color:  rgba(255, 255, 255, 0.05);
   padding: 40px 30px;
@@ -38,9 +35,6 @@ article {
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================
-   SECTION TITLES
-========================= */
 .info h2 {
   font-family: 'TBJ Palatino', serif;
   font-size: 34px;
@@ -54,15 +48,12 @@ article {
 
 .info h3 {
   font-family: 'TBJ Palatino', serif;
-  font-size: 24px;
+  font-size: 30px;
   margin-top: 30px;
   margin-bottom: 15px;
   color: #84634A;
 }
 
-/* =========================
-   DETAILS CONTENT
-========================= */
 .details ul {
   list-style: none;
   padding: 0;
@@ -74,32 +65,40 @@ article {
   padding: 15px 20px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0);
-  font-size: 18px;
-  color:  #84634A;/*font color*/
+  font-size: 20px;
+  color:  #84634A;
   font-family: 'Quiche Sans', sans-serif;
 }
 
 .details p {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
   color:  #84634A;
   font-family: 'Quiche Sans', sans-serif;
 }
 
-/* nested list (RSVP contacts) */
 .details li ul {
   margin-top: 10px;
   padding-left: 20px;
 }
+.info h3 {
+  position: relative;
+  font-family: 'TBJ Palatino', serif;
+  font-size: 30px;
+  color: #84634A;
+  
+  margin-top: 50px; 
+  margin-bottom: 25px; 
+  padding-bottom: 10px; 
+  
+  border-bottom: 1px solid rgba(132, 99, 74, 0.35); 
+}
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
 @media (max-width: 1366px) {
   header h1 { font-size: 44px; }
   header p { font-size: 18px; }
   .info h2 { font-size: 30px; }
-  .info h3 { font-size: 20px; }
+  .info h3 { font-size: 25px; }
   .details li, .details p { font-size: 16px; }
 }
 
@@ -107,7 +106,7 @@ article {
   header h1 { font-size: 38px; }
   header p { font-size: 16px; }
   .info h2 { font-size: 26px; }
-  .info h3 { font-size: 18px; }
+  .info h3 { font-size: 22px; }
   .details li, .details p { font-size: 15px; }
   article { padding: 25px 20px; }
 }
@@ -116,7 +115,7 @@ article {
   header h1 { font-size: 30px; }
   header p { font-size: 15px; }
   .info h2 { font-size: 22px; }
-  .info h3 { font-size: 16px; }
+  .info h3 { font-size: 20px; }
   .details li, .details p { font-size: 14px; }
   article { padding: 20px 15px; }
 }
