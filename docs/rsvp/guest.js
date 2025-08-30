@@ -24,8 +24,8 @@ const guestList = [
     members: ["Melody Elias", "Craig Owen"]
 },
 {
-    groupName: "MATTHEW VAN HEERDEN & DRU-ANNE NAIDOO",
-    members: ["Matthew Van Heerden", "Dru-Anne Naidoo"]
+    groupName: "MATTHEW VAN HEERDEN"
+    members: ["Matthew Van Heerden"]
 },
 {
     groupName: "CONNÓR VAN HEERDEN & SHAMEEK SIGNH",
@@ -40,7 +40,7 @@ const guestList = [
     members: ["Razia Shortridge", "Quan Shortridge", "Sage Shortridge", "Sadie Shortridge"]
 },
 {
-    groupName: "BENITA SAYED* + ASLAM SAYED* + WALEED SAYED*",
+    groupName: "BENITA SAYED + ASLAM SAYED + WALEED SAYED",
     members: ["Benita Sayed", "Aslam Sayed", "Waleed Sayed"]
 },
 {
@@ -129,19 +129,19 @@ const guestList = [
     members: ["Sherwin Kubie", "Tiffany Goliath"]
 },
 {
-    groupName: "YUL KUBIE (NO PLUS 1)",
+    groupName: "YUL KUBIE",
     members: ["Yul Kubie"]
 },
 {
-    groupName: "NATHANIEL KUBIE (NO PLUS 1)",
+    groupName: "NATHANIEL KUBIE",
     members: ["Nathaniel Kubie"]
 },
 {
-    groupName: "ALESSIO KUBIE (NO PLUS 1)",
+    groupName: "ALESSIO KUBIE",
     members: ["Alessio Kubie"]
 },
 {
-    groupName: "CHAMILLE KUBIE (NO PLUS 1)",
+    groupName: "CHAMILLE KUBIE",
     members: ["Chamille Kubie"]
 },
 {
@@ -149,7 +149,7 @@ const guestList = [
     members: ["Ronsley Kubie", "June Kubie", "Jordan Kubie"]
 },
 {
-    groupName: "RONWYN KUBIE (NO PLUS 1)",
+    groupName: "RONWYN KUBIE",
     members: ["Ronwyn Kubie"]
 },
 {
@@ -177,11 +177,10 @@ const guestList = [
     members: ["Belinda Botha", "Heston Botha"]
 },
 {
-    groupName: "DEVIKA VAN ZYL (NO PLUS 1)",
+    groupName: "DEVIKA VAN ZYL",
     members: ["Devika Van Zyl"]
 },
 {
-    groupName: "JARED GULSTON (NO PLUS 1)",
+    groupName: "JARED GULSTON",
     members: ["Jared Gulston"]
 }
-];
