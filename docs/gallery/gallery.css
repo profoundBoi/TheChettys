@@ -1,0 +1,131 @@
+.gallery {
+  text-align: center;
+  padding: 40px 20px;
+  color: #84634A;
+  font-family: 'Quiche Sans', sans-serif;
+}
+
+.gallery h2 {
+  font-family: 'TBJ Palatino', serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #84634A;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  color: #84634A;
+}
+
+/* Image Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid figure {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: scale(1.03);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#lightbox.active {
+  display: flex;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: #84634A;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10000; /* ensure arrows appear above image */
+}
+
+.lightbox-arrow:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.lightbox-arrow.prev {
+  left: 20px;
+}
+
+.lightbox-arrow.next {
+  right: 20px;
+}
+
+/* Optional captions */
+.gallery-grid figcaption {
+  padding: 10px;
+  font-size: 14px;
+  color: #84634A;
+  font-style: italic;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .gallery h2 {
+    font-size: 26px;
+  }
+
+  .gallery p {
+    font-size: 16px;
+  }
+
+  .gallery-grid {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery h2 {
+    font-size: 22px;
+  }
+
+  .gallery p {
+    font-size: 15px;
+  }
+}
