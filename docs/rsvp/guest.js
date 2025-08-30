@@ -184,23 +184,3 @@ const guestList = [
     groupName: "JARED GULSTON",
     members: ["Jared Gulston"]
 }
-];groupName: CRISTÉL VENTER
-members:["CRISTÉL VENTER"]
-}
-];groupName: HERMAN ELIAS & OLIVIA ELIAS
-members:["HERMAIN ELIAS", "OLIVIA ELIAS"]
-}
-];groupName: THULASIZWE DAMBUZA
-members:["THULASIZWE DAMBUZA"]
-}
-];groupName: CHRISTOPHER CARELSE & LORETTA CARELSE
-members:["CHRISTOPHER CARELSE", "LORETTA CARELSE"]
-}
-];groupName: CLAIRE ELIAS
-members:["CLAIRE ELIAS"]
-}
-];groupName: COLLETTE ELIAS
-members:["COLLETTE ELIAS"]
-}
-];groupName: HAVIS LINDOLENT
-members:["HAVIS LINDOLENT"]
